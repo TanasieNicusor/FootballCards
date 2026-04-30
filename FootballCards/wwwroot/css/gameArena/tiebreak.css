@@ -1,0 +1,76 @@
+﻿.tiebreak-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-weight: 900;
+    color: #f1c40f;
+    text-shadow: 0 0 20px rgba(241, 196, 15, 0.8);
+    z-index: 100;
+    pointer-events: none;
+    animation: flash 1s infinite alternate;
+}
+
+@keyframes flash {
+    from {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+.sum-indicator {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2px 10px;
+    border-radius: 10px;
+    border: 1px solid #f1c40f;
+    font-weight: bold;
+    color: #f1c40f;
+    font-size: 0.9rem;
+    z-index: 5;
+}
+
+.tiebreak-alert {
+    position: absolute;
+    top: 25%;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #f1c40f;
+    text-shadow: 0 0 30px rgba(241, 196, 15, 1), 0 0 10px rgba(241, 196, 15, 0.8);
+    z-index: 100;
+    animation: pulse 1s infinite;
+    letter-spacing: 5px;
+    font-style: italic;
+    pointer-events: none;
+}
+
+.tie-sum {
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+
+#my-tie-sum span {
+    color: #00ff88;
+}
+
+#opponent-tie-sum span {
+    color: #e74c3c;
+}

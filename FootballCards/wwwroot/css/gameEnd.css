@@ -1,0 +1,173 @@
+﻿#end-game-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1a4a1a;
+    z-index: 500;
+}
+
+.field-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(0deg, #1a4a1a 0%, #246a24 100%);
+}
+
+.field-boundary {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+.field-center-line {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}
+
+.field-center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.live-calculator {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.calc-sidebar {
+    text-align: center;
+    flex: 1;
+}
+
+.calc-label {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.calc-score {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+.calc-center {
+    flex: 1;
+    text-align: center;
+}
+
+.calc-round {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f1c40f;
+    letter-spacing: 1px;
+}
+
+.field-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+.field-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.field-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 1000px;
+}
+
+#opp-field-side {
+    align-items: flex-start;
+}
+
+#my-field-side {
+    align-items: flex-end;
+}
+
+.reveal-card {
+    animation: fieldReveal 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: scale(0);
+}
+
+@keyframes fieldReveal {
+    0% {
+        transform: scale(0) translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(0.65) translateY(0);
+        opacity: 1;
+    }
+}
+
+.field-grid .card-item {
+    margin: -25px;
+}
+
+.bonus-animation {
+    animation: bonusPulse 0.5s ease-out;
+}
+
+@keyframes bonusPulse {
+    0% {
+        transform: scale(1);
+        color: #fff;
+    }
+
+    50% {
+        transform: scale(1.2);
+        color: #f1c40f;
+    }
+
+    100% {
+        transform: scale(1);
+        color: #fff;
+    }
+}

@@ -1,0 +1,100 @@
+@{
+    ViewData["Title"] = "Lobby";
+}
+<link rel="stylesheet" href="~/css/gameLobby.css" asp-append-version="true" />
+<div id="lobby-view" class="text-center py-5">
+    <h1 class="display-4 fw-bold">Football Cards 1v1 Multiplayer</h1>
+    
+    <div class="mt-5">
+        <button id="find-match-btn" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg main-btn">
+            Find Match
+        </button>
+        <p id="lobby-status" class="mt-3 text-muted"></p>
+    </div>
+</div>
+
+<div id="game-view" class="d-none">
+    <!-- Top Area: Opponent -->
+    <div class="player-area opponent-area">
+        <div class="player-info">
+            <h5>Opponent</h5>
+            <div class="score-badge"><span id="opponent-score">0</span> Wins</div>
+            <div class="status-indicator" id="opponent-status">Waiting...</div>
+        </div>
+        <div class="hand" id="opponent-hand">
+            <!-- Cards appended here dynamically -->
+        </div>
+    </div>
+
+    <!-- Center Area: Play Field -->
+    <div class="play-field">
+        <div class="deck-area" id="deck-draw">
+            <div class="deck-card card-back shadow-lg"></div>
+        </div>
+        <div class="battle-area">
+            <div class="round-counter">ROUND <span id="round-number">1</span>/15</div>
+            <div id="tiebreak-alert" class="tiebreak-alert d-none">TIEBREAK</div>
+            <div class="battle-row">
+                <div class="battle-column">
+                    <div class="played-card-slot" id="opponent-play-slot"></div>
+                    <div class="tie-sum d-none" id="opponent-tie-sum">Sum: <span>0</span></div>
+                </div>
+                <div class="vs-text">VS</div>
+                <div class="battle-column">
+                    <div class="played-card-slot" id="my-play-slot"></div>
+                    <div class="tie-sum d-none" id="my-tie-sum">Sum: <span>0</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Area: Me -->
+    <div class="player-area my-area">
+        <div class="hand" id="my-hand">
+            <!-- Cards appended here dynamically -->
+        </div>
+        <div class="player-info align-items-end">
+            <h5>You</h5>
+            <div class="score-badge"><span id="my-score">0</span> Wins</div>
+            <div class="status-indicator" id="my-status">Your Turn</div>
+        </div>
+    </div>
+
+    
+</div>
+
+<div id="end-game-view" class="d-none">
+    <div class="field-container">
+        <div class="field-boundary"></div>
+        <div class="field-center-line"></div>
+        <div class="field-center-circle"></div>
+        
+        <div class="live-calculator">
+            <div class="calc-sidebar">
+                <div class="calc-label">Opponent</div>
+                <div id="calc-opp-score" class="calc-score">0</div>
+            </div>
+            <div class="calc-center">
+                <div id="calc-round-info" class="calc-round">FINAL REVEAL</div>
+            </div>
+            <div class="calc-sidebar">
+                <div class="calc-label">You</div>
+                <div id="calc-my-score" class="calc-score">0</div>
+            </div>
+        </div>
+
+        <div class="field-layout">
+            <div class="field-side" id="opp-field-side">
+                <div class="field-grid" id="opp-reveal-grid"></div>
+            </div>
+            <div class="field-side" id="my-field-side">
+                <div class="field-grid" id="my-reveal-grid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/signalr.min.js"></script>
+    <script src="~/js/game.js" asp-append-version="true"></script>
+}

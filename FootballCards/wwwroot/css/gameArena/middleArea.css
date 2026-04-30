@@ -1,0 +1,82 @@
+﻿.play-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.deck-area {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 50;
+}
+    .deck-area:hover {
+        transform: scale(1.05);
+    }
+
+.battle-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.battle-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.battle-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.played-card-slot {
+    min-width: 130px;
+    height: 190px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    position: relative;
+    transition: all 0.3s;
+    flex-wrap: nowrap;
+    overflow: visible;
+}
+
+.vs-text {
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    color: #e74c3c;
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
